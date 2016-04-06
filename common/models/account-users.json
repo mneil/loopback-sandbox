@@ -1,0 +1,24 @@
+{
+  "name": "AccountUsers",
+  "base": "PersistedModel",
+  "http": {
+    "path": "accountusers"
+  },
+  "mixins": {},
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "accounts": {
+      "type": "belongsTo",
+      "model": "Accounts",
+      "foreignKey": "accountsId"
+    },
+    "users": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "usersId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

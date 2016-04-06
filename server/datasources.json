@@ -1,6 +1,17 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "postgres": {
+    "host": "0.0.0.0",
+    "port": 5432,
+    "database": "sandbox",
+    "password": "postgres",
+    "name": "postgres",
+    "connector": "postgresql",
+    "debug": "true",
+    "user": "postgres",
+    "ssl" : false
   }
 }

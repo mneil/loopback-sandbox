@@ -1,0 +1,49 @@
+{
+  "name": "Users",
+  "plural": "users",
+  "base": "User",
+  "http": {
+    "path": "users"
+  },
+  "mixins": {},
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": false,
+      "length": 45,
+      "postgresql": {
+        "dataType": "varchar",
+        "dataLength": 45,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "timezone_offset": {
+      "type": "number",
+      "required": false,
+      "postgresql": {
+        "dataType": "smallint",
+        "nullable": "NO",
+        "default": 0
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accounts": {
+      "type": "hasMany",
+      "model": "Accounts",
+      "through": "AccountUsers",
+      "foreignKey": "usersId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

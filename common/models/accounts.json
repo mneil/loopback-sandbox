@@ -1,0 +1,111 @@
+{
+  "name": "Accounts",
+  "plural": "accounts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "http": {
+    "path": "accounts"
+  },
+  "properties": {
+    "company": {
+      "type": "string",
+      "required": false,
+      "length": 128,
+      "postgresql": {
+        "dataType": "varchar",
+        "dataLength": 128,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "street": {
+      "type": "string",
+      "required": false,
+      "length": 128,
+      "postgresql": {
+        "dataType": "varchar",
+        "dataLength": 128,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "city": {
+      "type": "string",
+      "required": false,
+      "length": 64,
+      "postgresql": {
+        "dataType": "varchar",
+        "dataLength": 64,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "state": {
+      "type": "string",
+      "required": false,
+      "length": 2,
+      "postgresql": {
+        "dataType": "char",
+        "dataLength": 2,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "zipcode": {
+      "type": "string",
+      "required": false,
+      "length": 5,
+      "postgresql": {
+        "dataType": "char",
+        "dataLength": 5,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "customer_id": {
+      "type": "string",
+      "required": false,
+      "length": 45,
+      "postgresql": {
+        "dataType": "varchar",
+        "dataLength": 45,
+        "nullable": "NO",
+        "default": ""
+      }
+    },
+    "card_expires": {
+      "type": "date",
+      "required": false,
+      "postgresql": {
+        "dataType": "date",
+        "nullable": "YES"
+      }
+    },
+    "billing_cycle": {
+      "type": "string",
+      "required": false,
+      "length": 12,
+      "postgresql": {
+        "dataType": "char",
+        "dataLength": 12,
+        "nullable": "NO",
+        "default": ""
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "Users",
+      "through": "AccountUsers",
+      "foreignKey": "accountsId"
+    }
+  },
+  "acls": [
+  ],
+  "methods": {}
+}
